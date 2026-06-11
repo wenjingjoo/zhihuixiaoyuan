@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧校园生活平台 - 阳光大学</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-graduation-cap"></i>
+        <span>智慧校园</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html" class="active">首页</a>
+        <a href="merchants.html">全部商家</a>
+      </div>
+      <div class="navbar-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="navSearch" placeholder="搜索商家、服务..." onkeydown="if(event.key==='Enter') handleNavSearch()">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero 区域 -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>🎓 智慧校园生活平台</h1>
+      <p class="hero-subtitle">一站式校园生活服务，将校园餐厅、超市、医务室、营业厅、游泳馆等所有商家接入平台</p>
+      <div class="hero-search">
+        <input type="text" id="heroSearch" placeholder="搜索你需要的校园服务..." onkeydown="if(event.key==='Enter') handleHeroSearch()">
+        <button onclick="handleHeroSearch()"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="number" id="statMerchants">0</span>
+          <span class="label">入驻商家</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number" id="statCategories">0</span>
+          <span class="label">服务分类</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number" id="statServices">0</span>
+          <span class="label">服务项目</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number">24h</span>
+          <span class="label">全天服务</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务分类 -->
+  <section class="section" id="categories">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-th-large"></i> 服务分类</h2>
+      <a href="merchants.html" class="section-more">查看全部 <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="category-grid" id="categoryGrid">
+      <!-- JS 动态渲染 -->
+    </div>
+  </section>
+
+  <!-- 推荐商家 -->
+  <section class="section" id="featured">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-star"></i> 推荐商家</h2>
+      <a href="merchants.html" class="section-more">查看全部 <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="merchant-grid" id="featuredGrid">
+      <!-- JS 动态渲染 -->
+    </div>
+  </section>
+
+  <!-- 热门商家 -->
+  <section class="section" id="hot">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-fire"></i> 热门商家</h2>
+      <a href="merchants.html" class="section-more">查看全部 <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="merchant-grid" id="hotGrid">
+      <!-- JS 动态渲染 -->
+    </div>
+  </section>
+
+  <!-- 最新公告 -->
+  <section class="section" id="announcements">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-bullhorn"></i> 最新公告</h2>
+    </div>
+    <div class="announcement-list" id="announcementList">
+      <!-- JS 动态渲染 -->
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-graduation-cap"></i>
+            智慧校园生活平台
+          </div>
+          <p class="footer-desc">
+            智慧校园生活平台致力于为全校师生提供便捷的一站式校园生活服务。
+            将校园内所有商家和服务统一接入平台，让校园生活更加美好。
+          </p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-weibo"></i></a>
+            <a href="#"><i class="fab fa-qq"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>服务分类</h4>
+          <a href="merchants.html?category=canteen">校园餐厅</a>
+          <a href="merchants.html?category=supermarket">超市便利店</a>
+          <a href="merchants.html?category=clinic">医务室</a>
+          <a href="merchants.html?category=telecom">营业厅</a>
+          <a href="merchants.html?category=swimming">游泳馆</a>
+        </div>
+        <div class="footer-column">
+          <h4>更多服务</h4>
+          <a href="merchants.html?category=gym">体育馆</a>
+          <a href="merchants.html?category=library">图书馆</a>
+          <a href="merchants.html?category=print">打印复印</a>
+          <a href="merchants.html?category=bank">银行服务</a>
+          <a href="merchants.html?category=cafe">咖啡奶茶</a>
+        </div>
+        <div class="footer-column">
+          <h4>关于我们</h4>
+          <a href="#">平台介绍</a>
+          <a href="#">商家入驻</a>
+          <a href="#">帮助中心</a>
+          <a href="#">意见反馈</a>
+          <a href="#">联系我们</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 智慧校园生活平台 · 阳光大学 | 让校园生活更美好</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // 初始化首页
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCategories();
+      renderFeaturedMerchants();
+      renderHotMerchants();
+      renderAnnouncements();
+      animateStats();
+      initScrollEffects();
+    });
+  </script>
+</body>
+</html>

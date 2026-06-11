@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商家详情 - 智慧校园生活平台</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-graduation-cap"></i>
+        <span>智慧校园</span>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html">首页</a>
+        <a href="merchants.html" class="active">全部商家</a>
+      </div>
+      <div class="navbar-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="navSearch" placeholder="搜索商家、服务..." onkeydown="if(event.key==='Enter') handleNavSearch()">
+      </div>
+    </div>
+  </nav>
+
+  <!-- 详情头部 -->
+  <div class="detail-header" id="detailHeader">
+    <img id="detailImage" src="" alt="">
+    <div class="detail-header-overlay">
+      <div class="detail-breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+        <span>/</span>
+        <a href="merchants.html">全部商家</a>
+        <span>/</span>
+        <span id="detailCategoryName"></span>
+      </div>
+      <div class="detail-title-row">
+        <h1 class="detail-name" id="detailName"></h1>
+        <div class="detail-rating-badge">
+          <span class="score" id="detailScore"></span>
+          <div>
+            <div class="stars" id="detailStars"></div>
+            <span class="count" id="detailCount"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 详情内容 -->
+  <div class="detail-content">
+    <div class="detail-main">
+      <!-- 简介 -->
+      <div class="detail-section">
+        <h2 class="detail-section-title"><i class="fas fa-info-circle"></i> 商家简介</h2>
+        <p class="detail-description" id="detailDesc"></p>
+      </div>
+
+      <!-- 服务项目 -->
+      <div class="detail-section">
+        <h2 class="detail-section-title"><i class="fas fa-concierge-bell"></i> 服务项目</h2>
+        <div class="detail-services" id="detailServices">
+          <!-- JS 动态渲染 -->
+        </div>
+      </div>
+
+      <!-- 标签 -->
+      <div class="detail-section">
+        <h2 class="detail-section-title"><i class="fas fa-tags"></i> 特色标签</h2>
+        <div class="detail-services" id="detailTags">
+          <!-- JS 动态渲染 -->
+        </div>
+      </div>
+
+      <!-- 用户评价 -->
+      <div class="detail-section">
+        <h2 class="detail-section-title"><i class="fas fa-comments"></i> 用户评价</h2>
+        <div id="reviewList">
+          <!-- JS 动态渲染 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="detail-sidebar">
+      <!-- 基本信息 -->
+      <div class="info-card">
+        <h3 style="font-size:16px;font-weight:600;margin-bottom:12px;color:var(--text-primary);">
+          <i class="fas fa-address-card" style="color:var(--primary);"></i> 基本信息
+        </h3>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="info-label">地址</div>
+            <div class="info-value" id="detailAddress"></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="info-label">营业时间</div>
+            <div class="info-value" id="detailHours"></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="info-label">联系电话</div>
+            <div class="info-value" id="detailPhone"></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-tag"></i></div>
+          <div>
+            <div class="info-label">分类</div>
+            <div class="info-value" id="detailCategory"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 操作按钮 -->
+      <div class="info-card" style="display:flex;flex-direction:column;gap:12px;">
+        <button class="btn btn-primary btn-lg" onclick="alert('功能开发中，敬请期待！')">
+          <i class="fas fa-shopping-bag"></i> 立即下单
+        </button>
+        <button class="btn btn-outline btn-lg" onclick="alert('已收藏该商家！')">
+          <i class="fas fa-heart"></i> 收藏商家
+        </button>
+        <button class="btn btn-outline btn-lg" onclick="alert('已复制联系方式！')">
+          <i class="fas fa-share-alt"></i> 分享给同学
+        </button>
+      </div>
+
+      <!-- 同类推荐 -->
+      <div class="info-card">
+        <h3 style="font-size:16px;font-weight:600;margin-bottom:12px;color:var(--text-primary);">
+          <i class="fas fa-thumbs-up" style="color:var(--primary);"></i> 同类推荐
+        </h3>
+        <div id="relatedMerchants" style="display:flex;flex-direction:column;gap:12px;">
+          <!-- JS 动态渲染 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-graduation-cap"></i>
+            智慧校园生活平台
+          </div>
+          <p class="footer-desc">
+            智慧校园生活平台致力于为全校师生提供便捷的一站式校园生活服务。
+            将校园内所有商家和服务统一接入平台，让校园生活更加美好。
+          </p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-weibo"></i></a>
+            <a href="#"><i class="fab fa-qq"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>服务分类</h4>
+          <a href="merchants.html?category=canteen">校园餐厅</a>
+          <a href="merchants.html?category=supermarket">超市便利店</a>
+          <a href="merchants.html?category=clinic">医务室</a>
+          <a href="merchants.html?category=telecom">营业厅</a>
+          <a href="merchants.html?category=swimming">游泳馆</a>
+        </div>
+        <div class="footer-column">
+          <h4>更多服务</h4>
+          <a href="merchants.html?category=gym">体育馆</a>
+          <a href="merchants.html?category=library">图书馆</a>
+          <a href="merchants.html?category=print">打印复印</a>
+          <a href="merchants.html?category=bank">银行服务</a>
+          <a href="merchants.html?category=cafe">咖啡奶茶</a>
+        </div>
+        <div class="footer-column">
+          <h4>关于我们</h4>
+          <a href="#">平台介绍</a>
+          <a href="#">商家入驻</a>
+          <a href="#">帮助中心</a>
+          <a href="#">意见反馈</a>
+          <a href="#">联系我们</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 智慧校园生活平台 · 阳光大学 | 让校园生活更美好</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initDetailPage();
+    });
+  </script>
+</body>
+</html>
